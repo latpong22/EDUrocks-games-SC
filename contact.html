@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <meta charset="UTF-8">
+        <title>Contact Us - EDUrocks</title>
+    <link rel="icon" href="/filestorage/photos/favicon.ico" type="image/x-icon">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #2C1D27;
+            --text-mauve: #D8B4C8;
+            --text-light: #F5F5F5;
+            --accent-cyan: #A0D2DB;
+            --surface-color: rgba(74, 55, 66, 0.5);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234A3742' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-effect {
+            background-color: var(--surface-color);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pride-gradient {
+            background: linear-gradient(to right, #E40303, #FF8C00, #FFED00, #008026, #004DFF, #750787, #5BCEFA, #F5A9B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: pride-flow 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        .theme-gradient {
+            background: linear-gradient(45deg, #D8B4C8, #A0D2DB, #F5F5F5, #A0D2DB, #D8B4C8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: theme-flow 6s ease infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes pride-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes theme-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    </style>
+</head>
+<body class="bg-[#2C1D27] text-[#F5F5F5]">
+
+    <div id="app" class="min-h-screen flex flex-col">
+        <div class="sticky top-0 z-50 glass-effect">
+            <nav class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="/filestorage/photos/logo.png" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x50/2C1D27/D8B4C8?text=Logo+Not+Found';">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Home</a>
+                    <a href="cdnstuff.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Games</a>
+                    <a href="appstuff.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Apps</a>
+                    <a href="oslinks.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">More Sites</a>
+                    <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Unrestricted Browsing</a>
+                    <a href="raq.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Request Game</a>
+                    <a href="devlog.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Updates</a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-white p-2 rounded-md hover:bg-white/10 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="lg:hidden hidden p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Home</a>
+                <a href="cdnstuff.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Games</a>
+                <a href="appstuff.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Apps</a>
+                <a href="oslinks.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">More Sites</a>
+                <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Unrestricted Browsing</a>
+                <a href="raq.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Request Game</a>
+                <a href="devlog.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Updates</a>
+            </div>
+        </div>
+
+        <div class="flex-grow">
+            <section class="container mx-auto px-4 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-extrabold text-[#D8B4C8] tracking-tight">Contact Us</h1>
+                </div>
+
+                <div class="max-w-3xl mx-auto space-y-8">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-2xl font-bold text-white mb-2">Copyright Issues</h2>
+                        <p class="text-white/70">If you own content on our site, email us: <a href="mailto:copyright@edurocks.org" class="text-[#A0D2DB] hover:underline">copyright@edurocks.org</a></p>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-2xl font-bold text-white mb-2">Questions & Feedback</h2>
+                        <p class="text-white/70">Have questions or feedback? Email us: <a href="mailto:admin@edurocks.org" class="text-[#A0D2DB] hover:underline">admin@edurocks.org</a></p>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-2xl font-bold text-white mb-2">Privacy & Your Data</h2>
+                        <p class="text-white/70 mb-2">We keep game request for as a minimum of 30 days. We log you IP, User Agent, Region, and Country through our partner Cloudflare.</p>
+                        <p class="text-white/70">For questions about your data or GDPR. Please email us with your Email and IP address. If you would like to request we delete all your game requests please email us with the IP, Email, or Name used for that game request : <a href="mailto:datarequest@edurocks.org" class="text-[#A0D2DB] hover:underline">datarequest@edurocks.org</a></p>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-2xl font-bold text-white mb-4">Co-Owners</h2>
+                        <div class="space-y-3">
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-white/5 rounded-lg">
+                                <span class="text-white font-medium">Chloe</span>
+                                <a href="mailto:chloe@edurocks.org" class="text-[#A0D2DB] hover:underline">chloe@edurocks.org</a>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-white/5 rounded-lg">
+                                <span class="text-white font-medium">2fast4gmod</span>
+                                <a href="mailto:2fast@edurocks.org" class="text-[#A0D2DB] hover:underline">2fast@edurocks.org</a>
+                            </div>
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 bg-white/5 rounded-lg">
+                                <span class="text-white font-medium">Everett</span>
+                                <a href="mailto:everett@edurocks.org" class="text-[#A0D2DB] hover:underline">everett@edurocks.org</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl text-center">
+                        <h2 class="text-2xl font-bold text-white mb-4">Developer Links</h2>
+                        <div class="flex items-center justify-center space-x-6">
+                            <a href="https://github.com/latpong22" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-[#F5F5F5] hover:text-[#D8B4C8] transition-colors">
+                                <svg class="h-8 w-8" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                </svg>
+                                <span class="text-lg">GitHub</span>
+                            </a>
+                            <a href="https://git.gay/latpong22" target="_blank" rel="noopener noreferrer" class="flex items-center space-x-2 text-[#F5F5F5] hover:text-[#D8B4C8] transition-colors">
+                                <img src="/filestorage/photos/gitgay.svg" class="h-8 w-8" onerror="this.style.display='none'">
+                                <span class="text-lg">git.gay</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="bg-transparent border-t border-white/10 mt-auto">
+            <div class="container mx-auto px-4 lg:px-8 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <p id="footer-brand-text" class="font-semibold theme-gradient">EDUrocks</p>
+                        <img src="/filestorage/photos/pd.svg" class="h-6 mt-1 mx-auto md:mx-0" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        <a href="support.html" class="text-sm text-white/60 hover:text-white transition-colors">Supporters/How to Support</a>
+                        <a href="part.html" class="text-sm text-white/60 hover:text-white transition-colors">Partner Sites</a>
+                        <a href="contact.html" class="text-sm text-white/60 hover:text-white transition-colors">Contact Info</a>
+                        <a href="https://stats.uptimerobot.com/z62RCQTD5Q" class="text-sm text-white/60 hover:text-white transition-colors">Uptime</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+
+            if (currentMonth === 5) {
+                const footerText = document.getElementById('footer-brand-text');
+                if(footerText) {
+                    footerText.classList.add('pride-gradient');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

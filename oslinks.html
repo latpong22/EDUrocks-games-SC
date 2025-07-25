@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <meta charset="UTF-8">
+        <title>More Sites - EDUrocks</title>
+    <link rel="icon" href="/filestorage/photos/favicon.ico" type="image/x-icon">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #2C1D27;
+            --text-mauve: #D8B4C8;
+            --text-light: #F5F5F5;
+            --accent-cyan: #A0D2DB;
+            --surface-color: rgba(74, 55, 66, 0.5);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234A3742' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-effect {
+            background-color: var(--surface-color);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pride-gradient {
+            background: linear-gradient(to right, #E40303, #FF8C00, #FFED00, #008026, #004DFF, #750787, #5BCEFA, #F5A9B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: pride-flow 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        .theme-gradient {
+            background: linear-gradient(45deg, #D8B4C8, #A0D2DB, #F5F5F5, #A0D2DB, #D8B4C8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: theme-flow 6s ease infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes pride-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes theme-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    </style>
+</head>
+<body class="bg-[#2C1D27] text-[#F5F5F5]">
+
+    <div id="app" class="min-h-screen flex flex-col">
+        <div class="sticky top-0 z-50 glass-effect">
+            <nav class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="/filestorage/photos/logo.png" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x50/2C1D27/D8B4C8?text=Logo+Not+Found';">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Home</a>
+                    <a href="cdnstuff.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Games</a>
+                    <a href="appstuff.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Apps</a>
+                    <a href="oslinks.html" class="px-3 py-2 text-sm font-medium text-[#2C1D27] bg-[#D8B4C8] rounded-full hover:bg-[#A0D2DB] transition-colors">More Sites</a>
+                    <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Unrestricted Browsing</a>
+                    <a href="raq.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Request Game</a>
+                    <a href="devlog.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Updates</a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-white p-2 rounded-md hover:bg-white/10 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="lg:hidden hidden p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Home</a>
+                <a href="cdnstuff.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Games</a>
+                <a href="appstuff.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Apps</a>
+                <a href="oslinks.html" class="block px-4 py-2 text-base font-medium text-[#2C1D27] bg-[#D8B4C8] rounded-full">More Sites</a>
+                <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Unrestricted Browsing</a>
+                <a href="raq.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Request Game</a>
+                <a href="devlog.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Updates</a>
+            </div>
+        </div>
+
+        <div class="flex-grow">
+            <section class="container mx-auto px-4 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-extrabold text-[#D8B4C8] tracking-tight">Other Sites</h1>
+                </div>
+
+                <div class="max-w-4xl mx-auto space-y-10">
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/10 pb-3">Games</h2>
+                        <div class="flex flex-col space-y-3">
+                            <a href="https://blubird.matthias-berlin.de/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">BluBird (Berlin)</a>
+                            <a href="https://bobbird.casarosalba.com/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">BobBird</a>
+                            <a href="https://blueybirdy.casarosalba.cl/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">BlueyBirdy</a>
+                            <a href="https://edublue.org" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">EduBlue</a>
+                            <a href="https://edurocks.org" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">EDUrocks</a>
+                            <a href="https://learnbla.org" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">LearnBla</a>
+                            <a href="https://awslunas3.learnbla.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">AWS Luna S3</a>
+                            <a href="https://really.justlearning.net/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Just Learning</a>
+                            <a href="https://selenite.edublue.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Selenite (EduBlue)</a>
+                            <a href="https://selenite.edurocks.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Selenite (EDUrocks)</a>
+                            <a href="https://selenite.eduwing.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Selenite (EduWing)</a>
+                            <a href="https://sel.learnbla.org" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Sel (LearnBla)</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/10 pb-3">Movies/Anime/TV Shows</h2>
+                        <div class="flex flex-col space-y-3">
+                            <a href="https://watch.spencerdevs.xyz/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Spencer Watch</a>
+                            <a href="https://www.cineby.app/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">CineBy</a>
+                            <a href="https://www.bitcine.app/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">BitCine</a>
+                            <a href="https://veloratv.ru/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VeloraTV</a>
+                            <a href="https://456movie.net/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">456Movie</a>
+                            <a href="https://rivestream.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">RiveStream (.org)</a>
+                            <a href="https://rivestream.net/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">RiveStream (.net)</a>
+                            <a href="https://flickystream.net/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">FlickyStream</a>
+                            <a href="https://www.1shows.ru/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">1Shows</a>
+                            <a href="https://hianime.to/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">HiAnime</a>
+                        </div>
+                    </div>
+
+                     <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/10 pb-3">Music</h2>
+                        <div class="flex flex-col space-y-3">
+                            <a href="https://dab.yeet.su/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">DAB Music (Yeet)</a>
+                            <a href="https://www.last.fm/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Last.fm</a>
+                            <a href="https://audiomack.com/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Audiomack</a>
+                            <a href="https://saavn-web-ui.vercel.app/#english" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Saavn Web UI</a>
+                            <a href="https://dabmusic.xyz/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">DAB Music (XYZ)</a>
+                        </div>
+                    </div>
+
+                     <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/10 pb-3">Books and Manga</h2>
+                        <div class="flex flex-col space-y-3">
+                            <a href="https://annas-archive.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Anna's Archive</a>
+                            <a href="https://z-lib.gd/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Z-Library</a>
+                            <a href="https://bookracy.ru/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Bookracy</a>
+                            <a href="https://freebannedbooks.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">Free Banned Books</a>
+                            <a href="https://mangadex.org/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">MangaDex</a>
+                            <a href="https://w.mangatown.com/" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">MangaTown</a>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect p-8 rounded-2xl">
+                        <h2 class="text-3xl font-bold text-white mb-6 border-b-2 border-white/10 pb-3">pr0xy</h2>
+                        <div class="flex flex-col space-y-3">
+                            <a href="https://vplaza.learnbla.org/styles/opera" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VPlaza (LearnBla)</a>
+                            <a href="https://vplazaaa.edurocks.org/styles/opera" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VPlazaaa (EDUrocks)</a>
+                            <a href="https://vplazzzza.eduwing.org/styles/opera" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VPlazzzza (EduWing)</a>
+                            <a href="https://vvvplaza.edublue.org/styles/opera" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VVVPlaza (EduBlue)</a>
+                            <a href="https://vplllaz.rockedu.site/styles/opera" target="_blank" class="text-lg text-white/80 hover:text-[#A0D2DB] hover:underline">VPlllaz (RockEdu)</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="bg-transparent border-t border-white/10 mt-auto">
+            <div class="container mx-auto px-4 lg:px-8 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <p id="footer-brand-text" class="font-semibold theme-gradient">EDUrocks</p>
+                        <img src="/filestorage/photos/pd.svg" class="h-6 mt-1 mx-auto md:mx-0" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        <a href="support.html" class="text-sm text-white/60 hover:text-white transition-colors">Supporters/How to Support</a>
+                        <a href="part.html" class="text-sm text-white/60 hover:text-white transition-colors">Partner Sites</a>
+                        <a href="contact.html" class="text-sm text-white/60 hover:text-white transition-colors">Contact Info</a>
+                        <a href="https://stats.uptimerobot.com/z62RCQTD5Q" class="text-sm text-white/60 hover:text-white transition-colors">Uptime</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+
+            if (currentMonth === 5) {
+                const footerText = document.getElementById('footer-brand-text');
+                if(footerText) {
+                    footerText.classList.add('pride-gradient');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

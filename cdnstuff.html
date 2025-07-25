@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html class="dark">
+<head>
+    <meta charset="UTF-8">
+        <title>Games - EDUrocks</title>
+    <link rel="icon" href="/filestorage/photos/favicon.ico" type="image/x-icon">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-dark: #2C1D27;
+            --text-mauve: #D8B4C8;
+            --text-light: #F5F5F5;
+            --accent-cyan: #A0D2DB;
+            --surface-color: rgba(74, 55, 66, 0.5);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%234A3742' fill-opacity='0.2'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        .glass-effect {
+            background-color: var(--surface-color);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .pride-gradient {
+            background: linear-gradient(to right, #E40303, #FF8C00, #FFED00, #008026, #004DFF, #750787, #5BCEFA, #F5A9B8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: pride-flow 8s ease infinite;
+            background-size: 200% 200%;
+        }
+        .theme-gradient {
+            background: linear-gradient(45deg, #D8B4C8, #A0D2DB, #F5F5F5, #A0D2DB, #D8B4C8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+            animation: theme-flow 6s ease infinite;
+            background-size: 200% 200%;
+        }
+        @keyframes pride-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+        @keyframes theme-flow { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    </style>
+</head>
+<body class="bg-[#2C1D27] text-[#F5F5F5]">
+
+    <div id="app" class="min-h-screen flex flex-col">
+        <div class="sticky top-0 z-50 glass-effect">
+            <nav class="container mx-auto px-4 lg:px-8 py-4 flex justify-between items-center">
+                <a href="index.html" class="flex items-center">
+                    <img src="/filestorage/photos/logo.png" class="h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x50/2C1D27/D8B4C8?text=Logo+Not+Found';">
+                </a>
+                
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="index.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Home</a>
+                    <a href="cdnstuff.html" class="px-3 py-2 text-sm font-medium text-[#2C1D27] bg-[#D8B4C8] rounded-full hover:bg-[#A0D2DB] transition-colors">Games</a>
+                    <a href="appstuff.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Apps</a>
+                    <a href="oslinks.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">More Sites</a>
+                    <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Unrestricted Browsing</a>
+                    <a href="raq.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Request Game</a>
+                    <a href="devlog.html" class="px-3 py-2 text-sm font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white transition-colors">Updates</a>
+                </div>
+
+                <div class="lg:hidden">
+                    <button id="mobile-menu-button" class="text-white p-2 rounded-md hover:bg-white/10 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </nav>
+            <div id="mobile-menu" class="lg:hidden hidden p-4 space-y-2">
+                <a href="index.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Home</a>
+                <a href="cdnstuff.html" class="block px-4 py-2 text-base font-medium text-[#2C1D27] bg-[#D8B4C8] rounded-full">Games</a>
+                <a href="appstuff.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Apps</a>
+                <a href="oslinks.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">More Sites</a>
+                <a href="https://s3persistentstoragelucdnapp.eduwing.org/" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Unrestricted Browsing</a>
+                <a href="raq.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Request Game</a>
+                <a href="devlog.html" class="block px-4 py-2 text-base font-medium text-white/80 rounded-full hover:bg-white/10 hover:text-white">Updates</a>
+            </div>
+        </div>
+
+        <div class="flex-grow">
+            <section class="container mx-auto px-4 lg:px-8 py-12">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl font-extrabold text-[#D8B4C8] tracking-tight">Games</h1>
+                    <p class="mt-4 text-lg text-white/70">Tip: Press Ctrl+F to search for any game.</p>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-x-6 gap-y-10">
+                    
+                    <a href="/filestorage/gd/minecraft/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                             <img src="/filestorage/photos/minecraft.png"  class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Minecraft (1.20.4)</p>
+                    </a>
+                    
+                    <a href="/filestorage/gd/slope/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/slope.png"  class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Slope</p>
+                    </a>
+
+                    <a href="/filestorage/gd/amongus/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/amongus.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Among Us</p>
+                    </a>
+
+                    <a href="/filestorage/gd/baldisbasics/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/baldisbasics.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Baldi's Basics</p>
+                    </a>
+
+                    <a href="/filestorage/gd/ballisticchickens/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/ballisticchickens.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Ballistic Chickens</p>
+                    </a>
+
+                    <a href="/filestorage/gd/basketball-random/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/basketball-random.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Basketball Random</p>
+                    </a>
+
+                    <a href="/filestorage/gd/basketball-stars/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/basketball-stars.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Basketball Stars</p>
+                    </a>
+
+                    <a href="/filestorage/gd/bit-planes/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/bit-planes.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Bit Planes</p>
+                    </a>
+
+                    <a href="/filestorage/gd/bitlife/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/bitlife.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">BitLife</p>
+                    </a>
+
+                    <a href="/filestorage/gd/blackjack/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/blackjack.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Blackjack</p>
+                    </a>
+
+                    <a href="/filestorage/gd/blockblast/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/blockblast.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Block Blast</p>
+                    </a>
+
+                    <a href="/filestorage/gd/BTD/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/BTD.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Bloons Tower Defense</p>
+                    </a>
+
+                    <a href="/filestorage/gd/buckshot-roulette/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/buckshot-roulette.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Buckshot Roulette</p>
+                    </a>
+
+                    <a href="/filestorage/gd/chrome-dino/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/chrome-dino.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Chrome Dino</p>
+                    </a>
+
+                    <a href="/filestorage/gd/class-of-09/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/class-of-09.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Class of 09</p>
+                    </a>
+
+                    <a href="/filestorage/gd/cluster-rush/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/cluster-rush.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Cluster Rush</p>
+                    </a>
+
+
+                    <a href="/filestorage/gd/cookie-clicker/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/cookie-clicker.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Cookie Clicker</p>
+                    </a>
+
+                    <a href="/filestorage/gd/crazycattle3d/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/crazycattle3d.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Crazy Cattle 3D</p>
+                    </a>
+
+                    <a href="/filestorage/gd/cubefield/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/cubefield.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Cubefield</p>
+                    </a>
+
+                    <a href="/filestorage/gd/drift-boss/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/drift-boss.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Drift Boss</p>
+                    </a>
+
+                    <a href="/filestorage/gd/drive-mad/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/drive-mad.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Drive Mad</p>
+                    </a>
+
+                    <a href="/filestorage/gd/donottakethiscathome/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/donottakethiscathome.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Do NOT Take This Cat Home</p>
+                    </a>
+
+                    <a href="/filestorage/gd/flappybird/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/flappybird.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Flappy Bird</p>
+                    </a>
+
+                    <a href="/filestorage/gd/fnaf/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/fnaf.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Five Nights at Freddy's</p>
+                    </a>
+
+                    <a href="/filestorage/gd/fnaf-2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/fnaf-2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Five Nights at Freddy's 2</p>
+                    </a>
+
+                    <a href="/filestorage/gd/fnaf-3/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/fnaf-3.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Five Nights at Freddy's 3</p>
+                    </a>
+
+                    <a href="/filestorage/gd/fnaf-4/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/fnaf-4.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Five Nights at Freddy's 4</p>
+                    </a>
+
+                    <a href="/filestorage/gd/fridaynightfunkin/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/fridaynightfunkin.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Friday Night Funkin'</p>
+                    </a>
+
+                    <a href="/filestorage/gd/getaway-shootout/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/getaway-shootout.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Getaway Shootout</p>
+                    </a>
+
+                    <a href="/filestorage/gd/gswitch-3/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/gswitch-3.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">G-Switch 3</p>
+                    </a>
+
+                    <a href="/filestorage/gd/happywheels/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/happywheels.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Happy Wheels</p>
+                    </a>
+
+                    <a href="/filestorage/gd/helixjump/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/helixjump.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Helix Jump</p>
+                    </a>
+
+                    <a href="/filestorage/gd/hexgl/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/hexgl.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">HexGL</p>
+                    </a>
+
+
+                    <a href="/filestorage/gd/holeio/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/holeio.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Hole.io</p>
+                    </a>
+
+                    <a href="/filestorage/gd/idle-mining-empire/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/idle-mining-empire.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Idle Mining Empire</p>
+                    </a>
+
+                    <a href="/filestorage/gd/idlebreakout/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/idlebreakout.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Idle Breakout</p>
+                    </a>
+
+
+
+                    <a href="/filestorage/gd/Klifur/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/Klifur.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Klifur</p>
+                    </a>
+
+                    <a href="/filestorage/gd/mindustry/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/mindustry.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Mindustry</p>
+                    </a>
+
+                    <a href="/filestorage/gd/mm/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/mm.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Monkey Mart</p>
+                    </a>
+
+                    <a href="/filestorage/gd/osu/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/osu.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">osu!</p>
+                    </a>
+
+                    <a href="/filestorage/gd/ovo/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/ovo.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">OvO</p>
+                    </a>
+
+                    <a href="/filestorage/gd/pacman/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/pacman.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Pac-Man</p>
+                    </a>
+
+                    <a href="/filestorage/gd/paperio2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/paperio2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Paper.io 2</p>
+                    </a>
+
+                    <a href="/filestorage/gd/paperio3d/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/paperio3d.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Paper.io 3D</p>
+                    </a>
+
+                    <a href="/filestorage/gd/pong/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/pong.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Pong</p>
+                    </a>
+
+                    <a href="/filestorage/gd/portalflash/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/portalflash.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Portal Flash</p>
+                    </a>
+
+                    <a href="/filestorage/gd/RDL-2D/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/RDL-2D.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Rocket league 2D</p>
+                    </a>
+
+                    <a href="/filestorage/gd/retrobowl/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/retrobowl.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Retro Bowl</p>
+                    </a>
+
+                    <a href="/filestorage/gd/retrobowlcollege/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/retrobowlcollege.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Retro Bowl College</p>
+                    </a>
+
+                    <a href="/filestorage/gd/rodha/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/rodha.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Rodha</p>
+                    </a>
+
+                    <a href="/filestorage/gd/slimevolb/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/slimevolb.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Slime Volb</p>
+                    </a>
+
+                    <a href="/filestorage/gd/snowrider3d/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/snowrider3d.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Snow Rider 3D</p>
+                    </a>
+
+                    <a href="/filestorage/gd/soccer-random/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/soccer-random.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Soccer Random</p>
+                    </a>
+
+                    <a href="/filestorage/gd/stateio/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/stateio.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">State.io</p>
+                    </a>
+
+                    <a href="/filestorage/gd/subway-surfers/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/subway-surfers.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Subway Surfers</p>
+                    </a>
+
+                    <a href="/filestorage/gd/superhot/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/superhot.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Superhot</p>
+                    </a>
+
+                    <a href="/filestorage/gd/tetris/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/tetris.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Tetris</p>
+                    </a>
+
+                    <a href="/filestorage/gd/the-cube/dist/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/the-cube.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">The Cube</p>
+                    </a>
+
+                    <a href="/filestorage/gd/the_deadseat/The Deadseat.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/the_deadseat.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">The Dead Seat</p>
+                    </a>
+
+                    <a href="/filestorage/gd/thats-not-my-neighbor/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/thats-not-my-neighbor.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Thats not my neighbor!!!</p>
+                    </a>
+
+                    <a href="/filestorage/gd/timeshooter1/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/timeshooter1.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Time Shooter 1</p>
+                    </a>
+
+                    <a href="/filestorage/gd/timeshooter2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/timeshooter2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Time Shooter 2</p>
+                    </a>
+
+                    <a href="/filestorage/gd/timeshooter3/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/timeshooter3.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Time Shooter 3</p>
+                    </a>
+
+                    <a href="/filestorage/gd/UCN/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/UCN.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Ultimate Custom Night</p>
+                    </a>
+
+                    <a href="/filestorage/gd/ultrakill/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/ultrakill.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Ultrakill</p>
+                    </a>
+
+                    <a href="/filestorage/gd/Wordle/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/Wordle.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Wordle</p>
+                    </a>
+
+                    <a href="/filestorage/gd/yansim/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/yansim.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Yandere Simulator</p>
+                    </a>
+
+                    <a href="/filestorage/gd/backrooms/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/backrooms.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Backrooms</p>
+                    </a>
+
+                    <a href="/filestorage/gd/bank-robbery/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/bank-robbery.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Bank Robbery</p>
+                    </a>
+
+                    <a href="/filestorage/gd/bank-robbery2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/bank-robbery2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Bank Robbery2</p>
+                    </a>
+
+                    <a href="/filestorage/gd/motox3m2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/motox3m2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Motox3m2</p>
+                    </a>
+
+                    <a href="/filestorage/gd/motox3m-spooky/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/motox3m-spooky.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Motox3m Spooky</p>
+                    </a>
+
+                    <a href="/filestorage/gd/motox3m-winter/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/motox3m-winter.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Motox3m Winter</p>
+                    </a>
+
+                    <a href="/filestorage/gd/paintball/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/paintball.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Paintball</p>
+                    </a>
+
+                    <a href="/filestorage/gd/poly-track/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/poly-track.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Poly Track</p>
+                    </a>
+
+                    <a href="/filestorage/gd/Snow-Rider3D-main/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/Snow-Rider3D-main.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Snow Rider3D Main</p>
+                    </a>
+
+                    <a href="/filestorage/gd/temple-run-2/index.html" class="text-center group">
+                        <div class="aspect-square glass-effect rounded-2xl overflow-hidden transform group-hover:-translate-y-1.5 transition-transform duration-300">
+                           <img src="/filestorage/photos/temple-run-2.png" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/300x300/2C1D27/D8B4C8?text=Game';">
+                        </div>
+                        <p class="mt-3 font-semibold text-white/90">Temple Run 2</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <div class="bg-transparent border-t border-white/10 mt-auto">
+            <div class="container mx-auto px-4 lg:px-8 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                    <div class="text-center md:text-left">
+                        <p id="footer-brand-text" class="font-semibold theme-gradient">EDUrocks</p>
+                        <img src="/filestorage/photos/pd.svg" class="h-6 mt-1 mx-auto md:mx-0" onerror="this.style.display='none'">
+                    </div>
+                    <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                        <a href="support.html" class="text-sm text-white/60 hover:text-white transition-colors">Supporters/How to Support</a>
+                        <a href="part.html" class="text-sm text-white/60 hover:text-white transition-colors">Partner Sites</a>
+                        <a href="contact.html" class="text-sm text-white/60 hover:text-white transition-colors">Contact Info</a>
+                        <a href="https://stats.uptimerobot.com/z62RCQTD5Q" class="text-sm text-white/60 hover:text-white transition-colors">Uptime</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        
+            const currentDate = new Date();
+            const currentMonth = currentDate.getMonth();
+
+            if (currentMonth === 5) {
+                const footerText = document.getElementById('footer-brand-text');
+                if(footerText) {
+                    footerText.classList.add('pride-gradient');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
